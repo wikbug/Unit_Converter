@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jednostki konwertera</title>
+</head>
+<body>
+    <h1>Konwerter jednostek</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="value">Wartość:</label>
+        <input type="number" name="value" required>
+        <br>
+
+        <label for="from_unit">Z:</label>
+        <select name="from_unit">
+            <option value="cm3">cm<sup>3</sup></option>
+            <option value="dm3">dm<sup>3</sup></option>
+            <option value="µl">µl</option>
+            <option value="ml">ml</option>
+            <option value="l">l</option>
+            <option value="g">g</option>
+        </select>
+        <br>
+
+        <label for="to_unit">Na:</label>
+        <select name="to_unit">
+            <option value="cm3">cm<sup>3</sup></option>
+            <option value="dm3">dm<sup>3</sup></option>
+            <option value="µl">µl</option>
+            <option value="ml">ml</option>
+            <option value="l">l</option>
+            <option value="µg">µg</option>
+            <option value="mg">mg</option>
+            <option value="ng">ng</option>
+        </select>
+        <br>
+
+        <input type="submit" value="Przelicz">
+    </form>
+
+    {% if result %}
+    <h2>Wynik:</h2>
+    <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
